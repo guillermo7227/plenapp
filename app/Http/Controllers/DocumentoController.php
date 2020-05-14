@@ -10,4 +10,9 @@ class DocumentoController extends Controller
     {
         return view('documentos.index');
     }
+
+    public function create()
+    {
+        return view('documentos.create');
+    }
 }

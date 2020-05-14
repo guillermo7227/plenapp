@@ -19299,6 +19299,16 @@ video {
   transition-delay: 1000ms;
 }
 
+.link {
+  --text-opacity: 1;
+  color: #3182ce;
+  color: rgba(49, 130, 206, var(--text-opacity));
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
@@ -92982,3 +92992,5 @@ video {
     transition-delay: 1000ms;
   }
 }
+
+

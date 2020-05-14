@@ -12,47 +12,23 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased leading-none">
-    <div id="app">
-        <nav class="bg-blue-900 shadow mb-8 py-6">
-            <div class="container mx-auto px-6 md:px-0">
-                <div class="flex items-center justify-center">
-                    <div class="mr-6">
-                        <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
-                    </div>
-                    <div class="flex-1 text-right">
-                        @guest
-                            <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            @if (Route::has('register'))
-                                <a class="no-underline hover:underline text-gray-300 text-sm p-3" href="{{ route('register') }}">{{ __('Register') }}</a>
-                            @endif
-                        @else
-                            <span class="text-gray-300 text-sm pr-4">{{ Auth::user()->name }}</span>
+<body class="bg-gray-100 h-screen antialiased ">
+    @include('layouts.header')
 
-                            <a href="{{ route('logout') }}"
-                               class="no-underline hover:underline text-gray-300 text-sm p-3"
-                               onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
-                                {{ csrf_field() }}
-                            </form>
-                        @endguest
-                    </div>
-                </div>
-            </div>
-        </nav>
-
+    <div class="container mx-auto px-3">
         @yield('content')
     </div>
 
-    <footer class="text-center absolute bottom-0 w-full p-4 mx-auto">
-        <a href="{{ route('home') }}">Inicio</a>
+    @auth()
+    <nav class="text-center absolute bottom-0 w-full p-4 mx-auto">
+        <a href="{{ route('home') }}">Inicio</a> |
         <a href="{{ route('documentos.index') }}">Documentos</a>
-    </footer>
+    </nav>
+    @endauth
 
     <!-- Scripts -->
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

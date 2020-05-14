@@ -3,3 +3,13 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.link {
+  @apply text-blue-600;
+}
+
+.link:hover {
+    @apply underline;
+}
+
+
