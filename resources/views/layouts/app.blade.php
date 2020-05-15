@@ -12,15 +12,15 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="bg-gray-100 h-screen antialiased ">
+<body class="bg-gray-100 h-screen antialiased">
     @include('layouts.header')
 
-    <div class="container mx-auto px-3">
+    <div class="container mx-auto px-3 mb-40">
         @yield('content')
     </div>
 
     @auth()
-    <nav class="text-center absolute bottom-0 w-full p-4 mx-auto">
+    <nav class="text-center fixed bg-blue-900 text-white bottom-0 w-full p-4 mx-auto">
         <a href="{{ route('home') }}">Inicio</a> |
         <a href="{{ route('documentos.index') }}">Documentos</a>
     </nav>

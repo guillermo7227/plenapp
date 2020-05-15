@@ -10,10 +10,15 @@
 
         <main class="my-6">
             <ul class="list-disc list-inside">
-                <li><a href="/viewpdf?doc=/archivos/documentos/PreciosNutricion.pdf">Precios Nutrición</a></li>
-                <li><a href="/viewpdf?doc=/archivos/documentos/PreciosBelleza.pdf">Precios Belleza</a></li>
-                <li><a href="/viewpdf?doc=/archivos/documentos/InfoNutricion.pdf">Información Nutrición</a></li>
-                <li><a href="/viewpdf?doc=/archivos/documentos/PaquetesNutricion.pdf">Paquetes Nutrición</a></li>
+                @forelse ($documentos as $doc)
+                    <li>
+                        <a href="/viewpdf?doc=/storage/{{ $doc->ruta }}" title="{{ $doc->descripcion }}">
+                            {{ $doc->nombre }}
+                        </a>
+                    </li>
+                @empty
+                    <p>No hay documentos que mostrar</p>
+                @endforelse
             </ul>
         </main>
     </div>

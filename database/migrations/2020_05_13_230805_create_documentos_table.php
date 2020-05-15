@@ -18,6 +18,7 @@ class CreateDocumentosTable extends Migration
             $table->string('nombre')->unique();
             $table->text('descripcion');
             $table->string('ruta');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
