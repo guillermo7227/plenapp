@@ -29,7 +29,7 @@
                                    accept="application/pdf"
                                    :caption="$errors->first('documento')" />
 
-                <x-ltui.button type="submit">Guardar</x-laratailui.button>
+                <x-ltui.button type="submit">Guardar</x-ltui.button>
             </form>
         </main>
     </div>
