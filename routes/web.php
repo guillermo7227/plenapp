@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::resource('documentos', 'DocumentoController')->middleware('auth');
+Route::resource('seguimientos', 'SeguimientoController')->middleware('auth');
+Route::resource('clientes', 'ClienteController')->middleware('auth');
 
 Route::view('/viewpdf', 'viewpdf')->middleware('auth');
 

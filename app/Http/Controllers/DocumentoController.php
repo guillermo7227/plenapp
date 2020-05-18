@@ -35,4 +35,12 @@ class DocumentoController extends Controller
 
         return redirect()->route('documentos.index');
     }
+
+
+    public function destroy(Documento $documento)
+    {
+        $documento->delete();
+
+        return redirect()->route('documentos.index');
+    }
 }
