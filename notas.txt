@@ -1,0 +1,3 @@
+. descargar pdf
+. sort documents by date
+. mostrar detalles de seguimiento y usuario

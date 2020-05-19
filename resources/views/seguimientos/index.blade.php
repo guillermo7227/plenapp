@@ -13,7 +13,8 @@
                 @forelse ($seguimientos as $seg)
                     <li class="flex items-center">
                         <a href="#">
-                            {{ $seg->cliente->nombre }} - {{ $seg->fecha_seguimiento }}
+                            {{ $seg->cliente->nombre }} -
+                            <span class="text-gray-600">@fecha($seg->fecha_seguimiento)</span>
                         </a>
 
                         <div class="ml-2" x-data>

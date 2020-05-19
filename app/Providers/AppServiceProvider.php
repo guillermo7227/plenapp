@@ -24,5 +24,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         \Schema::defaultStringLength(191);
+        setlocale(LC_ALL, 'es_CO.UTF-8');
+        \Blade::directive('fecha', function ($expression) {
+            return "<?php echo strftime('%e de %B', strtotime(\Carbon\Carbon::make($expression))); ?>";
+        });
+
     }
 }

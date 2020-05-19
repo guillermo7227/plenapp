@@ -9,7 +9,7 @@ class SeguimientoController extends Controller
 {
      public function index()
     {
-        $seguimientos = \Auth::user()->seguimientos;
+        $seguimientos = \Auth::user()->seguimientos->sortBy('fecha_seguimiento');
 
         return view('seguimientos.index', compact('seguimientos'));
     }

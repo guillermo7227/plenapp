@@ -42,7 +42,7 @@
                                        placeholder="Otra información relevante sobre el cliente, por ej. redes sociales, etc."
                                        :caption="$errors->first('otra_info')" />
 
-                <x-ltui.button type="submit">Guardar</x-ltui.button>
+                <x-ltui.button type="submit" :bgColor="'primary'">Guardar</x-ltui.button>
             </form>
         </main>
     </div>
