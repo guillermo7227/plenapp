@@ -22,13 +22,16 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body class="bg-gray-100 h-screen antialiased">
     @include('layouts.header')
 
     <div class="container mx-auto px-3 mb-40">
         @yield('content')
+        <x-calc.calc />
     </div>
+
 
     @include('layouts.footer')
 
