@@ -1,6 +1,6 @@
 @auth
 <div x-data="{
-        expression: '2',
+        expression: '',
         cancel() { this.expression = ''; },
         backspace() {
             const exp = this.expression;
@@ -14,7 +14,7 @@
         equal() { this.expression = this.evaluate() }
      }"
      id="calc"
-     class="border rounded fixed bottom-0 right-0 mb-16 mr-2 shadow pb-2"
+     class="border rounded fixed bottom-0 right-0 mb-16 mr-2 shadow pb-2 hidden"
      style="width: 200px">
 
     <!-- Cabecera -->

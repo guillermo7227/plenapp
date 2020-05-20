@@ -1,6 +1,6 @@
 
 @auth()
-<nav class="text-center fixed bg-blue-900 text-gray-200 bottom-0 w-full px-4 py-2 mx-auto flex justify-between text-2xl">
+<nav class="text-center fixed bg-blue-900 text-gray-200 bottom-0 w-full px-4 py-3 mx-auto flex justify-between text-2xl">
     <a href="{{ route('home') }}" title="Inicio">
         <span class="iconify" data-icon="bx:bx-home-circle" data-inline="false"></span>
     </a>

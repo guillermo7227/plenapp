@@ -1,4 +1,4 @@
-<nav class="bg-blue-900 text-gray-200 shadow mb-8 py-4">
+<nav class="bg-blue-900 text-gray-200 shadow mb-8 px-0 md:px-4 py-2">
     <div class="container mx-auto px-6 md:px-0">
         <div class="flex items-center justify-center">
             <div class="mr-6">
@@ -16,7 +16,7 @@
                     <span class=" text-sm pr-4">{{ Auth::user()->name }}</span>
 
                     <a href="{{ route('logout') }}"
-                       class="no-underline hover:underline  text-sm p-3"
+                       class="no-underline hover:underline text-sm"
                        onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
                         <span class="iconify" data-icon="ant-design:logout-outlined" data-inline="false"></span>
