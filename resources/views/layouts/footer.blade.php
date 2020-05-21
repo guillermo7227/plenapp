@@ -13,6 +13,9 @@
     <a href="{{ route('clientes.index') }}" title="Clientes">
         <span class="iconify" data-icon="fa-solid:people-carry" data-inline="false"></span>
     </a>
+    <a href="{{ route('productos.index') }}" title="Productos">
+        <span class="iconify" data-icon="gridicons:product" data-inline="false"></span>
+    </a>
     <a href="javascript:void(0)"
        onclick="document.querySelector('#calc').classList.toggle('hidden')"
        title="Calculadora">
