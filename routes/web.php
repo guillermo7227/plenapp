@@ -21,6 +21,8 @@ Route::resource('documentos', 'DocumentoController')->middleware('auth');
 Route::resource('seguimientos', 'SeguimientoController')->middleware('auth');
 Route::resource('clientes', 'ClienteController')->middleware('auth');
 Route::resource('productos', 'ProductoController')->middleware('auth');
+Route::resource('medios', 'MedioController')->middleware('auth');
+Route::resource('etiquetas', 'EtiquetaController')->middleware('auth');
 
 Route::view('/viewpdf', 'viewpdf')->middleware('auth');
 

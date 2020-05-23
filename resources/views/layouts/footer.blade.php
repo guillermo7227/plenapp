@@ -16,6 +16,12 @@
     <a href="{{ route('productos.index') }}" title="Productos">
         <span class="iconify" data-icon="gridicons:product" data-inline="false"></span>
     </a>
+    <a href="{{ route('etiquetas.index') }}" title="Etiquetas">
+        <span class="iconify" data-icon="ant-design:tag-outlined" data-inline="false"></span>
+    </a>
+    <a href="{{ route('medios.index') }}" title="Medios">
+        <span class="iconify" data-icon="ic:baseline-perm-media" data-inline="false"></span>
+    </a>
     <a href="javascript:void(0)"
        onclick="document.querySelector('#calc').classList.toggle('hidden')"
        title="Calculadora">

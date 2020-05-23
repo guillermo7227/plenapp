@@ -25,6 +25,9 @@
 
 </head>
 <body class="bg-gray-100 h-screen antialiased">
+
+    <x-ltui.feedback />
+
     @include('layouts.header')
 
     <div class="container mx-auto px-3 mb-40">
