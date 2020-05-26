@@ -24,7 +24,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body class="bg-gray-100 h-screen antialiased">
+<body class="bg-gray-100 text-gray-800 h-screen antialiased">
 
     <x-ltui.feedback />
 
@@ -41,6 +41,7 @@
     <!-- Scripts -->
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>
