@@ -31,7 +31,7 @@
 
                 <div :class="{'hidden': !preparandoParaCompatir}" class="flex">
                     <span class="mr-2">Preparando para compartir...</span>
-                    <img src="{{ secure_asset('images/cargando.gif') }}" alt="" width="25">
+                    <img src="{{ \H::uasset('images/cargando.gif') }}" alt="" width="25">
                 </div>
 
             </div>
@@ -113,7 +113,7 @@
             },
             methods: {
                 hideModal(ev) {
-                    if (ev.target.id=='app') {
+                    if (ev.target.id=='modal') {
                         this.medio = null;
                         this.showModal = false;
                     }

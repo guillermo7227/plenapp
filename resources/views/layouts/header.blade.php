@@ -3,7 +3,7 @@
         <div class="flex items-center justify-center">
             <div class="mr-6">
                 <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
-                    <img src="{{ asset('images/logo_texto.png') }}" alt="logotipo" width="110">
+                    <img src="{{ \H::uasset('images/logo_texto.png') }}" alt="logotipo" width="110">
                 </a>
             </div>
             <div class="flex-1 flex items-center justify-end">
