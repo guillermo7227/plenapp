@@ -7,8 +7,9 @@
     preg_match_all('!\d+!', $bgColor, $colorNumber); // get color number
     $hoverBgColor = $hoverBgColor ?? count($colorNumber[0]) > 0 ? $colorName[0][0].'-'.((int)($colorNumber[0][0])+100) : $bgColor;
     $defaultClasses = "rounded-lg border bg-{$bgColor} hover:bg-{$hoverBgColor} text-{$color} px-4 py-2 cursor-pointer";
+    $cClass = $cClass ?? '';
 @endphp
-<div class="py-3">
+<div class="py-3 {{ $cClass }}">
     <button {{ $attributes->merge(['class' => $defaultClasses.' '.$class]) }}
             {{ $attributes }}>
             {{ $slot }}

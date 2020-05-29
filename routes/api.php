@@ -28,4 +28,12 @@ Route::group([
     ] , function() {
         Route::get('{medio}', 'MedioController@show')->name('show');
     });
+
+    Route::group([
+        'prefix' => 'seguimientos',
+        'as' => 'seguimientos.'
+    ] , function() {
+        Route::get('{seguimiento}', 'SeguimientoController@show')->name('show');
+        Route::put('{seguimiento}', 'SeguimientoController@update')->name('update');
+    });
 });

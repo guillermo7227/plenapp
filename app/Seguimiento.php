@@ -8,6 +8,7 @@ class Seguimiento extends Model
 {
     protected $guarded = [];
 
+    protected $with = ['cliente'];
 
     public function cliente()
     {

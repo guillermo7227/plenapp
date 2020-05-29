@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SeguimientoRequest;
+use App\Seguimiento;
 use Illuminate\Http\Request;
 
 class SeguimientoController extends Controller
@@ -26,6 +27,17 @@ class SeguimientoController extends Controller
         $data = $request->validated();
 
         \App\Cliente::find($data['cliente_id'])->seguimiento()->create($data);
+
+        \Session::flash('status', ['success', 'Se creó el seguimiento satisfactoriamente.']);
+
+        return redirect()->route('seguimientos.index');
+    }
+
+    public function destroy(Seguimiento $seguimiento)
+    {
+        $seguimiento->delete();
+
+        \Session::flash('status', ['success', 'Se borró el seguimiento satisfactoriamente.']);
 
         return redirect()->route('seguimientos.index');
     }

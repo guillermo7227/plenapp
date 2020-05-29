@@ -21,10 +21,10 @@
                                    placeholder="Teléfono del cliente"
                                    :caption="$errors->first('telefono')" />
 
-                <x-ltui.input-textarea :title="'Dirección del cliente'"
-                                       name="direccion"
-                                       placeholder="Dirección del cliente"
-                                       :caption="$errors->first('direccion')" />
+                <x-ltui.textarea :title="'Dirección del cliente'"
+                                 name="direccion"
+                                 placeholder="Dirección del cliente"
+                                 :caption="$errors->first('direccion')" />
 
                 <x-ltui.input-text :title="'País del cliente'"
                                    name="pais"
@@ -32,15 +32,15 @@
                                    :caption="$errors->first('pais')" />
 
 
-                <x-ltui.input-textarea :title="'Observaciones del cliente'"
-                                       name="observaciones"
-                                       placeholder="Notas sobre el cliente, padecimientos de salud o intereses en productos"
-                                       :caption="$errors->first('observaciones')" />
+                <x-ltui.rich-text :title="'Observaciones del cliente'"
+                                 name="observaciones"
+                                 placeholder="Notas sobre el cliente, padecimientos de salud o intereses en productos"
+                                 :caption="$errors->first('observaciones')" />
 
-                <x-ltui.input-textarea :title="'Otra información del cliente'"
-                                       name="otra_info"
-                                       placeholder="Otra información relevante sobre el cliente, por ej. redes sociales, etc."
-                                       :caption="$errors->first('otra_info')" />
+            <x-ltui.rich-text :title="'Otra información del cliente'"
+                               name="otra_info"
+                               placeholder="Otra información relevante sobre el cliente, por ej. redes sociales, etc."
+                               :caption="$errors->first('otra_info')" />
 
                 <x-ltui.button type="submit" :bgColor="'primary'">Guardar</x-ltui.button>
             </form>

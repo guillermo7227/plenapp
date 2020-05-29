@@ -26,7 +26,7 @@ class SeguimientoRequest extends FormRequest
         return [
             'cliente_id' => 'required|exists:clientes,id',
             'fecha_compra' => 'required|date',
-            'fecha_seguimiento' => 'nullable',
+            'fecha_proximo_seguimiento' => 'nullable',
             'observaciones' => 'nullable'
         ];
     }

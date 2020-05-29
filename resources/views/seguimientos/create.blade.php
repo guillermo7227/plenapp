@@ -27,15 +27,16 @@
                                    name="fecha_compra"
                                    :caption="$errors->first('fecha_compra')"/>
 
-                <x-ltui.input-date :title="'Fecha de seguimiento'"
+                <x-ltui.input-date :title="'Fecha de próximo seguimiento'"
                                    value="{{ now()->addDays(15)->format('Y-m-d') }}"
-                                   name="fecha_seguimiento"
-                                   :caption="$errors->first('fecha_seguimiento')"/>
+                                   name="fecha_proximo_seguimiento"
+                                   :caption="$errors->first('fecha_proximo_seguimiento')"/>
 
-                <x-ltui.input-textarea :title="'Observaciones'"
-                                       name="observaciones"
-                                       placeholder="Observaciones"
-                                       :caption="$errors->first('observaciones')" />
+                <x-ltui.rich-text :title="'Observaciones'"
+                                  name="observaciones"
+                                  placeholder="Escriba observaciones y/o notas..."
+                                  :caption="$errors->first('observaciones')" />
+
 
                 <x-ltui.button type="submit" :bgColor="'primary'">Guardar</x-ltui.button>
             </form>
