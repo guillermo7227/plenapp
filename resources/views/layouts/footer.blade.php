@@ -5,17 +5,17 @@
         <span class="iconify" data-icon="bx:bx-home-circle" data-inline="false"></span>
     </a>
     <a href="{{ route('documentos.index') }}" title="Documentos">
-        <span class="iconify" data-icon="et:documents" data-inline="false"></span>
+        <span class="iconify" data-icon="icons8:document" data-inline="false"></span>
     </a>
     <a href="{{ route('seguimientos.index') }}" title="Seguimientos">
         <span class="iconify" data-icon="gridicons:reader-following" data-inline="false"></span>
     </a>
     <a href="{{ route('clientes.index') }}" title="Clientes">
-        <span class="iconify" data-icon="fa-solid:people-carry" data-inline="false"></span>
+        <span class="iconify" data-icon="cil:people" data-inline="false"></span>
     </a>
-    <a href="{{ route('productos.index') }}" title="Productos">
-        <span class="iconify" data-icon="gridicons:product" data-inline="false"></span>
-    </a>
+    {{-- <a href="{{ route('productos.index') }}" title="Productos"> --}}
+    {{--     <span class="iconify" data-icon="gridicons:product" data-inline="false"></span> --}}
+    {{-- </a> --}}
     <a href="{{ route('etiquetas.index') }}" title="Etiquetas">
         <span class="iconify" data-icon="ant-design:tag-outlined" data-inline="false"></span>
     </a>

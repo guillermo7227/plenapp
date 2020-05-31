@@ -1,49 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
-    <div id="modal"
-         :class="{'hidden': !showModal}"
-         @click="hideModal"
-         class="fixed pin z-50 left-0 w-screen h-screen top-0 overflow-auto pt-8 pb-16 text-center px-4 flex">
-
-         <div class="w-5/6 bg-blue-300 mx-auto p-6 rounded border overflow-auto">
-            <div v-if="medio" class="w-5/6 bg-purple-400 mx-auto flex flex-col items-center justify-center">
-                <template v-if="medio.tipo.startsWith('image')">
-                    <img :src="medio.ruta" alt="imagen medio" class="max-w-full">
-                </template>
-                <template v-if="medio.tipo.startsWith('video')">
-                    <video :src="medio.ruta"
-                           autoplay
-                           controls
-                           class="max-w-full">
-                        Tu navegador no admite el elemento <code>video</code>.
-                    </video>
-                </template>
-                <div v-if="medio.etiquetas">
-                    <p class="mt-3"><strong>Etiquetas</strong></p>
-                    <template v-for="(etiqueta, i) in medio.etiquetas" class="text-sm">
-                        <span v-text="etiqueta.texto+(i < medio.etiquetas.length-1 ? ', ' : '')"></span>
-                    </template>
-                </div>
-                <div>
-                    <a href="#" @click.prevent="shareMedio"class="mt-3">Compatir</a>
-                </div>
-
-                <div :class="{'hidden': !preparandoParaCompatir}" class="flex">
-                    <span class="mr-2">Preparando para compartir...</span>
-                    <img src="{{ \H::uasset('images/cargando.gif') }}" alt="" width="25">
-                </div>
-
-            </div>
-        </div>
-    </div>
-
     <div class="px-6 ">
         <header class="my-4">
             <h1 class="font-bold text-3xl">Medios</h1>
         </header>
 
         <a class="link" href="{{ route('medios.create') }}">Agregar Medio</a>
+        <a class="link ml-4" href="{{ route('medios.etiquetar') }}">Etiquetar Medios</a>
 
         @php $tags = str_replace(',,','',request()->tags); @endphp
 
@@ -70,7 +34,9 @@
 
                 </div>
             @empty
-                <p>Seleccione una o mas etiquetas para filtrar los medios</p>
+                @if (!$medios->isEmpty())
+                    <p>Seleccione una o mas etiquetas para filtrar los medios</p>
+                @endif
             @endforelse
         </div>
 
@@ -94,6 +60,51 @@
 
 
         </main>
+    </div>
+
+    <div id="modal"
+         :class="{'hidden': !showModal}"
+         @click="hideModal"
+         class="fixed pin z-50 left-0 w-screen h-screen top-0 overflow-auto pt-8 pb-16 text-center px-4 flex">
+
+         <div class="w-5/6 mx-auto p-6 rounded border overflow-auto bg-gray-100">
+            <div v-if="medio" class="w-5/6 mx-auto flex flex-col items-center justify-center">
+                <template v-if="medio.tipo.startsWith('image')">
+                    <img :src="medio.ruta" alt="imagen medio" class="max-w-full">
+                </template>
+                <template v-if="medio.tipo.startsWith('video')">
+                    <video :src="medio.ruta"
+                           autoplay
+                           controls
+                           class="max-w-full">
+                        Tu navegador no admite el elemento <code>video</code>.
+                    </video>
+                </template>
+                <div class="flex justify-between w-full mt-3">
+                    <template v-if="medio.etiquetas">
+                        <template v-for="(etiqueta, i) in medio.etiquetas" class="text-sm">
+                            <span class="text-sm">
+                                @{{ etiqueta.texto+(i<medio.etiquetas.length-1 ? ', ' : '') }}
+                            </span>
+                        </template>
+                    </template>
+                    <template v-show="!medio.etiquetas" class="text-sm">
+                        <span class="text-sm">No hay etiquetas</span>
+                    </template>
+                    <div>
+                        <a href="#" @click.prevent="shareMedio"class="text-3xl">
+                            <span class="iconify" data-icon="ant-design:share-alt-outlined" data-inline="false"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div :class="{'hidden': !preparandoParaCompatir}" class="flex">
+                    <span class="mr-2">Preparando para compartir...</span>
+                    <img src="{{ \H::uasset('images/cargando.gif') }}" alt="" width="25">
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <script>

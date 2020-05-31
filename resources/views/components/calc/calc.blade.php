@@ -1,4 +1,9 @@
 @auth
+@php
+    $visible = isset($visible) ? true : false;
+    $position = $position ?? 'bottom-0 right-0';
+@endphp
+<style>.minimized { height: 35px; }</style>
 <div x-data="{
         expression: '',
         cancel() { this.expression = ''; },
@@ -14,17 +19,20 @@
         equal() { this.expression = this.evaluate() }
      }"
      id="calc"
-     class="border rounded fixed bottom-0 right-0 mb-16 mr-2 shadow pb-2 hidden"
+     class="border rounded bg-gray-100 fixed mb-16 mr-2 shadow pb-2 overflow-hidden {{ $position }} @if(!$visible) hidden @endif"
      style="width: 200px">
 
     <!-- Cabecera -->
-    <header>
-        <div class="flex justify-end p-2">
+    <header class"flex justify-between">
+        <div class="flex justify-between p-2">
+            <div @click="document.querySelector('#calc').classList.toggle('minimized')"
+                 class="cursor-pointer">
+                <span class="iconify" data-icon="ic:baseline-minimize" data-inline="false"></span>
+            </div>
+
             <div @click="document.querySelector('#calc').classList.toggle('hidden')"
                  class="cursor-pointer">
-                <span class="iconify"
-                      data-icon="ic:baseline-close"
-                      data-inline="false">
+                <span class="iconify" data-icon="ic:baseline-close" data-inline="true">
                 </span>
             </div>
         </div>

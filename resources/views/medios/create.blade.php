@@ -14,8 +14,10 @@
                                    name="medio"
                                    required
                                    multiple
+                                   :button-text="'Buscar imagenes/videos'"
                                    :route="route('medios.store')"
                                    :redirect="route('medios.index')"
+                                   :inmediate="true"
                                    accept="image/x-png,image/gif,image/jpeg,video/mp4,video/x-m4v,video/*"
                                    :caption="$errors->first('medios')" />
 

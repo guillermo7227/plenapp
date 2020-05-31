@@ -17,11 +17,11 @@
                                    placeholder="Nombre del documento"
                                    :caption="$errors->first('nombre')" />
 
-                <x-ltui.input-textarea :title="'Descripción del documento'"
-                                       name="descripcion"
-                                       required
-                                       placeholder="Descripción del documento"
-                                       :caption="$errors->first('descripcion')" />
+                <x-ltui.textarea :title="'Descripción del documento'"
+                                 name="descripcion"
+                                 required
+                                 placeholder="Descripción del documento"
+                                 :caption="$errors->first('descripcion')" />
 
                 <x-ltui.input-file :title="'Seleccione el documento a cargar'"
                                    name="documento"

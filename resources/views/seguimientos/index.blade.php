@@ -12,10 +12,8 @@
             <ul class="list-disc list-inside">
                 @forelse ($seguimientos as $seg)
                     <li class="flex items-center">
-                        <a href="#">
-                            {{ $seg->cliente->nombre }} -
-                            <span class="text-gray-600">@fecha($seg->fecha_proximo_seguimiento)</span>
-                        </a>
+                        {{ $seg->cliente->nombre }} -
+                        <span class="text-gray-600">@fecha($seg->fecha_proximo_seguimiento)</span>
 
                         <div class="ml-2" x-data>
                             <a href="#"

@@ -16,13 +16,13 @@
                 <form action="{{ route('etiquetas.store') }}" method="POST">
                     @csrf
                     @php $events = json_encode(['clear-input' => "\$refs.input.value = ''"]); @endphp
-                    <x-ltui.input-textarea :title="'Escriba las etiquetas a agregar'"
-                                           name="etiquetas"
-                                           id="etiquetas"
-                                           required
-                                           :events="$events"
-                                           placeholder="Escriba las etiquetas. P.ej. aqtúa, sistema nervioso, omniplus, testimonio"
-                                           :caption="$errors->first('etiquetas')" />
+                    <x-ltui.textarea :title="'Escriba las etiquetas a agregar'"
+                                     name="etiquetas"
+                                     id="etiquetas"
+                                     required
+                                     :events="$events"
+                                     placeholder="Escriba las etiquetas. P.ej. aqtúa, sistema nervioso, omniplus, testimonio"
+                                     :caption="$errors->first('etiquetas')" />
 
                     <div class="flex">
                         <x-ltui.button type="button"

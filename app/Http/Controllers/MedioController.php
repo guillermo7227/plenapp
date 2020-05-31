@@ -63,4 +63,11 @@ class MedioController extends Controller
         return response()->json(['status' => 'success', 'message' => 'Archivos cargado con éxito']);
 
     }
+
+
+    public function etiquetar()
+    {
+        $medios = Medio::withCount('etiquetas')->orderByDesc('created_at')->paginate(20);
+        return view('medios.etiquetar', compact('medios'));
+    }
 }

@@ -25,15 +25,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-
     <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css" crossorigin="anonymous">
     <script src="https://unpkg.com/nprogress@0.2.0/nprogress.js"></script>
-    <link rel="stylesheet" href="{{ \H::uasset('css/quill.snow.css') }}">
-
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <link rel="stylesheet" href="{{ \H::uasset('css/quill.snow.css') }}">
     <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    @stack('head')
 </head>
 <body class="bg-gray-100 text-gray-800 h-screen antialiased">
 
@@ -50,8 +51,6 @@
     @include('layouts.footer')
 
     <!-- Scripts -->
-    <script src="https://code.iconify.design/1/1.0.6/iconify.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ \H::uasset('js/app.js') }}" defer></script>
     @stack('scripts')
 </body>

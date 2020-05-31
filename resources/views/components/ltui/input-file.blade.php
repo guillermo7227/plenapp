@@ -9,13 +9,15 @@
     $defaultClasses = 'border px-4 py-2 rounded cursor-pointer bg-gray-200 hover:bg-gray-300';
     $route = $route ?? '/';
     $redirect = $redirect ?? '/';
+    $inmediate = $inmediate ?? false;
+    $buttonText = $buttonText ?? 'Buscar archivo';
 @endphp
 <div class="py-3" x-data="{
         showTitle: true,
-        sub(ev) {
+        fileChanged(ev) {
             const file = ev.target.files[0];
-            const fileName = file.split('\\');
-            document.getElementById('{{ $id }}-file-name').innerText = fileName[fileName.length - 1];
+            const fileName = file.name;
+            document.getElementById('{{ $id }}-file-name').innerText = fileName;
         },
         fileList: [],
         currentFileIndex: 0,
@@ -33,7 +35,7 @@
             if (this.currentFileIndex < this.fileList.length) {
                 this.uploadFile(this.currentFileIndex);
             } else {
-                let segundos = 10;
+                let segundos = 15;
                 let timer = setInterval(() => {
                     let msg = 'Proceso terminado. Se cargaron '+this.fileList.length+' archivos. ';
                     msg += '\n¡Gracias por mejorar PlenApp!. Se redireccionará en ' + segundos-- + ' segundos.';
@@ -52,7 +54,6 @@
             const formdata = new FormData();
             formdata.append('_token', '{{ csrf_token() }}');
             formdata.append('{{ $name }}', file);
-            //alert(file.name+' | '+file.size+' | '+file.type);
             const ajax = new XMLHttpRequest();
             ajax.upload.addEventListener('progress', this.progressHandler.bind(this), false);
             ajax.addEventListener('load', this.completeHandler.bind(this), false);
@@ -66,24 +67,28 @@
 
            <a {{ $attributes->merge(['class' => $defaultClasses.' '.$class]) }}
               @click="$refs.input.click();">
-               Buscar archivo
-           </a>
+              {{ $buttonText }}
+           </a> <br>
 
+           <div class="m-5">
+               <span id="{{ $id }}-file-name"></span>
+           </div>
 
            <div style='height: 0px;width: 0px; overflow:hidden;'>
                <input x-ref="input"
                       {{ $attributes }}
                       type="file"
                       value="upload"
-                      @change="processNextFile"
+                      @if ($inmediate)
+                          @change="processNextFile"
+                      @else
+                          @change="fileChanged"
+                      @endif
                 />
            </div>
            <div class="mt-3" x-show="fileList.length > 0">
-               <h5 x-ref="status" :class="{'text-green-800 font-bold': uploadComplete()}">
-                   Cargando archivos...
-               </h5>
                <template x-for="index in [...Array(fileList.length).keys()]">
-                   <div class="flex w-full items-center text-gray-700 text-sm border-b-2 mt-2">
+                   <div class="flex w-full items-center text-gray-700 text-sm border-b-2 my-2">
                        <div :x-text="`fileList.item(index).name`"
                           class="whitespace-pre overflow-hidden w-1/2 pr-2"></div>
                        <progress :x-ref="'progress-bar'+index"
@@ -93,6 +98,9 @@
                        </progress>
                    </div>
                </template>
+               <h5 x-ref="status" :class="{'text-green-800 font-bold': uploadComplete()}">
+                   Cargando archivos...
+               </h5>
            </div>
 
            <p class="pl-1 mt-3 text-xs text-{{$captionColor}}-600">{{ $caption }}</p>
